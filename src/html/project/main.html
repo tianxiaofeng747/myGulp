@@ -1,0 +1,143 @@
+﻿<div ng-controller="project.main as self" class="app-view-project-main ng-cloak">
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="panel-heading"><span class="subTitle">能耗日历</span></div>
+                <div class="panel-body">
+                    <div class="subContent clearfix">
+                        <div class="col-sm-5">
+
+                            <div class="datetimepicker-component" ng-show="self.calendarData">
+
+                                <div class="datetimepicker-panel">
+                                    <i></i>
+                                    <datetimepicker data-min-view="2"
+                                                    data-format="yyyy/mm/dd"
+                                                    data-date="{{self.todayDate}}"
+                                                    event-init="self.calendar.init()"
+                                                    event-change-date="self.calendar.changeDate()"
+                                                    event-change-month="self.calendar.setDate()"
+                                                    event-change-year="self.calendar.setDate()"></datetimepicker>
+                                </div>
+
+                                <div class="datetimepicker-comment row panel-body text-center">
+                                    <div class="col-sm-4"><div class="row"><i class="em-down"></i> 能耗下降</div></div>
+                                    <div class="col-sm-4"><div class="row"><i class="em-up"></i> 能耗上升</div></div>
+                                    <div class="col-sm-4"><div class="row"><i class="em-keep"></i> 能耗持平</div></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col-sm-7">
+
+                            <div class="row highcharts-component" ng-if="self.chartPies">
+
+                                <div class="highcharts-today text-center">{{self.todayDate}}</div>
+
+                                <highcharts class="highcharts-panel text-center" config="self.chartPies"></highcharts>
+
+                                <div class="highcharts-comment row text-center">
+
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="unitAreaTitle">环比费用</div>
+                                            <div class="unitAreaCounting">
+                                                {{self.currentDayConsumptionPerArea}}
+                                                <span class="unitAreaUnit">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="unitAreaTitle">同比费用</div>
+                                            <div class="unitAreaCounting">
+                                                {{self.currentDayElectricConsumptionPerArea}}
+                                                <span class="unitAreaUnit">%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5 content-right">
+            <div class="row">
+                <div class="panel-heading"><span class="subTitle">总能耗</span></div>
+                <div class="panel-body">
+                    <div class="subContent clearfix">
+
+                        <div class="highcharts-component" ng-if="self.monthlyEnergyConsumption">
+
+                            <div class="highcharts-today text-center">{{self.todayDate}}</div>
+
+                            <highcharts class="highcharts-panel text-center" config="self.monthlyEnergyConsumption"></highcharts>
+
+                            <div class="highcharts-comment row text-center">
+
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="unitAreaTitle">单位面积能耗</div>
+                                        <div class="unitAreaCounting">
+                                            {{self.currentMonthConsumptionPerAcreage}}
+                                            <span class="unitAreaUnit">kgce/m2</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <div class="unitAreaTitle">单位面积电耗</div>
+                                        <div class="unitAreaCounting">
+                                            {{self.currentMonthElectricConsumptionPerAcreage}}
+                                            <span class="unitAreaUnit">kWh/m2</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rate-content clearfix">
+        <div class="col-sm-7">
+            <div class="row">
+                <div class="panel-heading"><span class="subTitle">水电气构成</span></div>
+                <div class="panel-body">
+                    <div class="subContent clearfix">
+
+                        <highcharts class="highcharts-panel highcharts-line text-center" config="self.datapoints"></highcharts>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5 content-right">
+            <div class="row">
+                <div class="panel-heading"><span class="subTitle">能耗细分</span></div>
+                <div class="panel-body">
+                    <div class="subContent clearfix">
+
+                        <highcharts class="highcharts-panel highcharts-pie text-center" config="self.customerPies"></highcharts>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

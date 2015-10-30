@@ -1,0 +1,122 @@
+body {
+    background-color: #EEE;
+    font-family: 'Microsoft YaHei', 'Helvetica Neue', Tahoma, Helvetica, Arial, sans-serif;
+}
+
+.ng-cloak {
+    display: none;
+}
+
+.body-background {
+    background: #EEE url(/dist/img/signin.jpg) repeat-y fixed center center / cover;
+}
+
+.view-mask {
+    position: fixed;
+    z-index: 999999999;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    @-webkit-keyframes dashboard-progress-bar-stripes {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 40px 0;
+        }
+    }
+    @-moz-keyframes dashboard-progress-bar-stripes {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 40px 0;
+        }
+    }
+    @-ms-keyframes dashboard-progress-bar-stripes {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 40px 0;
+        }
+    }
+    @-o-keyframes dashboard-progress-bar-stripes {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 40px 0;
+        }
+    }
+    @keyframes dashboard-progress-bar-stripes {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 40px 0;
+        }
+    }
+    .progress {
+        height: 6px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+        background-image: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+    }
+    .progress-bar {
+        background-image: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        background-color: #53bddc;
+    }
+    .progress-bar-striped {
+        background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    }
+    .progress-bar.active {
+        -moz-animation: dashboard-progress-bar-stripes 0.2s linear infinite;
+        -o-animation: dashboard-progress-bar-stripes 0.2s linear infinite;
+        -webkit-animation: dashboard-progress-bar-stripes 0.2s linear infinite;
+        animation: dashboard-progress-bar-stripes 0.2s linear infinite;
+    }
+}
+
+
+/*  登录页样式  */
+
+.app-view-login {
+    form {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: auto;
+        height: auto;
+        line-height: normal;
+        margin: 0;
+        padding: 0;
+        .form-horizontal {
+            width: 250px;
+            margin-left: -50%;
+            margin-top: -100%;
+            color: #FFF;
+            &,
+            .emicon {
+                line-height: 30px;
+            }
+        }
+    }
+}

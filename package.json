@@ -1,0 +1,40 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "main": "dist/js/app.min.js",
+  "keywords": [],
+  "author": "smallKugua",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-cache": "^0.3.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-file-include": "^0.13.7",
+    "gulp-filter": "^3.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-main-bower-files": "^1.2.2",
+    "gulp-match": "^1.0.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-packages": "^0.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^6.0.1",
+    "gulp-rev-replace": "^0.4.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.1",
+    "gulp-webserver": "^0.9.1",
+    "q": "^1.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "description": "this the test gulp",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tianxiaofeng747/testRepor.git"
+  }
+}

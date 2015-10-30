@@ -1,0 +1,63 @@
+<div ng-controller="project.monitor as self" class="app-view-project-monitor ng-cloak">
+
+    <div class="panel-heading subContent">
+        <div class="media">
+            <div class="media-body media-middle">
+                <span class="subTitle">所有能耗分类</span>
+            </div>
+            <div class="media-body">
+                <div class="btn-group pull-right" ng-if="self.energyData">
+                    <button type="button" class="btn btn-sm btn-default" data-toggle="dropdown" ng-bind="self.energyData.selected.title||\'所有分类\'"></button>
+                    <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="javascript:void(0)" ng-click="self.energyData.select()">所有分类</a></li>
+                        <li ng-repeat="item in self.energyData"><a href="javascript:void(0)" ng-click="self.energyData.select(item)" ng-bind="item.title"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <div class="row text-center">
+
+            <table class="table panel panel-default">
+                <thead>
+                    <tr style="height:38px;">
+                        <th class="text-center" style="width:60px;">序号</th>
+                        <th class="text-center" style="width:130px;">设备标识</th>
+                        <th class="text-center" style="width:200px;">设备名称</th>
+                        <th class="text-center" style="width:130px;">通道名称</th>
+                        <th class="text-center" style="width:100px;">能耗分类</th>
+                        <th class="text-center" style="width:130px;">设备读数</th>
+                        <th class="text-center" style="width:80px;">设备状态</th>
+                        <th class="text-center" style="width:150px;">通讯时间</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <div style="overflow-y:auto;min-height:500px;">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr class="sensor" ng-repeat="item in self.monitorData">
+                            <td style="width:60px;" ng-bind="$index+1"></td>
+                            <td style="width:130px;" ng-bind="item.addr"></td>
+                            <td style="width:200px;" ng-bind="item.title"></td>
+                            <td style="width:130px;" ng-bind="item.channel"></td>
+                            <td style="width:100px;" ng-bind="item.energycategory"></td>
+                            <td style="width:130px;" ng-bind="item.lastvalue"></td>
+                            <td style="width:80px;" ng-bind="item.status" ng-style="{color:{\'正常\':\'#99CC66\',\'异常\':\'#FF6666\'}[item.status]}"></td>
+                            <td style="width:150px;" ng-bind="item.time|date:\'yyyy/MM/dd HH:mm:ss\'"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav>
+                    <pagination class="pagination pull-right" config="self.monitorData.paging" click="self.list"></pagination>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</div>

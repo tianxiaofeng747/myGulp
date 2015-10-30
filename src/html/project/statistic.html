@@ -1,0 +1,46 @@
+<div ng-controller="project.statistic as self" class="app-view-project-statistic">
+    <div class="row panel-body">
+        <ul class="nav nav-tabs ng-cloak">
+            <li class="active"><a data-toggle="tab" href="#settleReport">结算报表</a></li>
+            <li class="pull-right navbar form-inline">
+                <div class="input-group">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span ng-bind="self.energyData.selected.title||\'全部\'">全部</span>
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-class="{active:!self.energyData.selected}" ng-click="self.report(self.energyData.selected=null)"><a href="javascript:void(0)">全部</a></li>
+                            <li ng-repeat="item in self.energyData" ng-class="{active:self.energyData.selected.id===item.id}" ng-click="self.report(self.energyData.selected=item)">
+                                <a href="javascript:void(0)" ng-bind="item.title"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="input-group date" datetimepicker data-min-view="2" data-autoclose="1" data-picker-position="bottom-left" data-format="yyyy-mm-dd">
+                    <input type="text" class="form-control" ng-model="self.startDate" required />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+                <div class="input-group">至</div>
+                <div class="input-group date" datetimepicker data-min-view="2" data-autoclose="1" data-picker-position="bottom-left" data-format="yyyy-mm-dd">
+                    <input type="text" class="form-control" ng-model="self.endDate" required />
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+                <div class="input-group">
+                    <button type="button" class="btn btn-primary" ng-click="self.report()"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+                <div class="input-group">
+                    <button type="button" class="btn btn-info" ng-click="self.toggleFiltering()">筛选<i class="glyphicon glyphicon-filter"></i></button>
+                </div>
+                <div class="input-group">
+                    <button type="button" class="btn btn-info" ng-click="self.export()">导出<i class="glyphicon glyphicon-export"></i></button>
+                </div>
+            </li>
+        </ul>
+        <div class="tab-content ng-cloak">
+            <div class="tab-pane subContent active" id="settleReport">
+                <div ui-grid="self.gridOptions" ui-grid-exporter></div>
+            </div>
+        </div>
+    </div>
+</div>
